@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans:400|Fira+Mono:400");
+
+html {
+  font-size: 100%;
+} /*16px*/
+
+body {
+  background-color: white;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  margin: 0 auto;
+  max-width: 50em;
+  padding: 4em 1em;
+  color: #1d2429;
+}
+
+p {
+  margin-bottom: 1.15rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 2.75rem 0 1.05rem;
+  font-family: "Fira Sans", sans-serif;
+  font-weight: 400;
+  line-height: 1.15;
+  display: block;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 2.488em;
+}
+
+h2 {
+  font-size: 2.074em;
+}
+
+h3 {
+  font-size: 1.728em;
+}
+
+h4 {
+  font-size: 1.44em;
+}
+
+h5 {
+  font-size: 1.2em;
+}
+
+small,
+.text_small {
+  font-size: 0.833em;
+}
+
+strong {
+  color: #333;
+}
+
+a {
+  color: tomato;
+}
+p {
+  vertical-align: text-bottom;
+}
+code,
+pre {
+  font-family: "Fira Mono", monospace;
+  color: #5f6266;
+}
+
+code {
+  font-size: 1em;
+}
+
+pre {
+  border-left: 2px solid darkgray;
+  background: #f5f7f9;
+  border-bottom: 1px solid #d8dee9;
+  padding: 1em 0.7em;
+}
+
+form {
+  margin: 2em;
+}
+label {
+  padding-right: 2em;
+  width: 130px;
+  display: inline-block;
+}
+
+.spinner {
+  width: 30px;
+  height: 30px;
+  /* margin: 100px auto; */
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+  animation: sk-scaleout 1s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
