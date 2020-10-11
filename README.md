@@ -36,6 +36,8 @@ code --version
 
 ```bash
 git clone git@github.com:technologiestiftung/nerdy-weeks-delightful-testing.git
+cd nerdy-weeks-delightful-testing
+npx lerna bootstrap
 ```
 
 ## Additional Modules
