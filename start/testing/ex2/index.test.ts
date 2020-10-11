@@ -2,6 +2,8 @@
 // TODO: setup eslint and Prettier and run `npx eslint --init`
 // TODO: setup jest with ts-jest, eslint-plugin-jest and @types/jest and run `npx ts-jest config:init`
 // TODO: configure eslint to know that we are using jest
+// TODO: create a new git repo
+// TODO: configute github to run our tests
 
 import {
   add,
