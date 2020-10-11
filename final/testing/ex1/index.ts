@@ -1,3 +1,43 @@
+const assert = require("assert").strict;
+
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+function merge(a: any, b: any) {
+  return Object.assign(a, b);
+}
+
+try {
+  assert.ok(add(2, 4) === 4, "Should return 4");
+} catch (error) {
+  if (error instanceof assert.AssertionError) {
+  }
+  console.error(
+    error.message,
+    "Expected:",
+    error.expected,
+    "But got",
+    error.actual
+  );
+}
+
+try {
+  assert.deepStrictEqual(
+    merge({ name: "Han" }, { shortFirst: true }),
+    { name: "Han", shortFirst: false },
+    "Merged object should be the same,"
+  );
+} catch (error) {
+  console.error(
+    error.message,
+    "Expected:",
+    error.expected,
+    "But got",
+    error.actual
+  );
+}
+
 /**
  * This is the function you use to create tests
  * pass in your test function as the callback.

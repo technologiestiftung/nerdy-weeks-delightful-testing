@@ -1,3 +1,8 @@
+// TODO: setup tyescript ts-node-dev and run `npx tsc --init`
+// TODO: setup eslint and Prettier and run `npx eslint --init`
+// TODO: setup jest with ts-jest, eslint-plugin-jest and @types/jest and run `npx ts-jest config:init`
+// TODO: configure eslint to know that we are using jest
+
 import {
   add,
   randomString,
