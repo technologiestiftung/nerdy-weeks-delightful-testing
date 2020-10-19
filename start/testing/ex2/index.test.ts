@@ -1,26 +1,21 @@
-// TODO: setup tyescript ts-node-dev and run `npx tsc --init`
-// TODO: setup eslint and Prettier and run `npx eslint --init`
-// TODO: setup jest with ts-jest, eslint-plugin-jest and @types/jest and run `npx ts-jest config:init`
-// TODO: configure eslint to know that we are using jest
-// TODO: create a new git repo
-// TODO: configute github to run our tests
-
 import {
   add,
+  subtract,
+  select,
   randomString,
   randomValues,
-  select,
   somethingShouldBeStatic,
-  subtract,
 } from "./index";
 
 describe("basic test driven development", () => {
   test("add two numbers", () => {
     expect(add(2, 2)).toBe(4);
   });
+
   test("subtract two numbers", () => {
     expect(subtract(2, 2)).toBe(0);
   });
+
   test("select from generic array", () => {
     const arr = [1, 2, 3, 4];
     const otherArr = ["1", "2", "3", "4"];
@@ -29,6 +24,10 @@ describe("basic test driven development", () => {
     expect(select(0, arr)).toBe(1);
     expect(select(0, otherArr)).toBe("1");
     expect(select(0, andAnotherArr)).toStrictEqual({ name: "Han" });
+  });
+
+  test("has length", () => {
+    expect({ length: 10 }).toHaveLength(10);
   });
 
   test("get random string of length back", () => {
@@ -56,13 +55,14 @@ describe("basic test driven development", () => {
         "value": 1,
       }
     `);
-    expect("What could go here?").toMatchInlineSnapshot(`
-      Array [
-        1,
-        2,
-        3,
-        4,
-      ]
-    `);
+
+    expect([1, 2, 3, 4]).toMatchInlineSnapshot(`
+        Array [
+          1,
+          2,
+          3,
+          4,
+        ]
+      `);
   });
 });

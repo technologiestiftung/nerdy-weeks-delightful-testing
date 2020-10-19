@@ -1,6 +1,6 @@
-// lesson taken from testingjsvascript.com
+// lesson taken from testingjvascript.com
 function sum(a, b) {
-  return a - b;
+  return a + b;
 }
 
 function subtract(a, b) {

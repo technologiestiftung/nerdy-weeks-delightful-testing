@@ -1,5 +1,6 @@
-// import request from "supertest";
-// import { app } from "./server";
+/* eslint-disable jest/no-hooks */
+import request from "supertest";
+import { app } from "./server";
 describe("testing the whole api mounted with jest and supertest", () => {
   /**
    * In this setup we use supertest to maunt the express app
@@ -14,8 +15,47 @@ describe("testing the whole api mounted with jest and supertest", () => {
   afterEach(() => {
     jest.resetModules();
   });
-  it.todo("should return life sign");
-  it.todo("should return an Array of foods and a description");
-  it.todo("should return a food by its id");
-  it.todo("should allow to post food to the end of the list");
+  it("should return life sign", async () => {
+    expect.assertions(1);
+    const response = await request(app).get("/api");
+    expect(response.body).toMatchInlineSnapshot(`
+      Object {
+        "message": "it is alive",
+      }
+    `);
+  });
+  it("should return an Array of foods and a description", async () => {
+    expect.assertions(3);
+    const response = await request(app).get("/api/foods");
+    expect(response.body.fruits.data.length).toBeGreaterThan(0);
+    expect(response.body.fruits.data).toStrictEqual(expect.any(Array));
+    expect(response.body.fruits.description).toStrictEqual(expect.any(String));
+  });
+  it("should return a food by its id", async () => {
+    expect.assertions(3);
+    const response = await request(app).get("/api/foods");
+    expect(response.body.fruits.data.length).toBeGreaterThan(0);
+    const responseSingleFood = await request(app).get(`/api/foods/${1}`);
+    expect(responseSingleFood.body.fruit).toBeDefined();
+    expect(responseSingleFood.body.fruit).toStrictEqual(expect.any(String));
+  });
+  it("should allow to post food to the end of the list", async () => {
+    expect.assertions(4);
+    const food = "dog food";
+    const resFood = await request(app).get("/api/foods");
+    expect(resFood.body.fruits.data.length).toBeGreaterThan(0);
+    const resPost = await request(app).post("/api/foods").send({ food });
+    expect(resPost.body).toMatchInlineSnapshot(`
+      Object {
+        "message": "food added",
+      }
+    `);
+    const resFoodAgain = await request(app).get("/api/foods");
+    expect(resFoodAgain.body.fruits.data).toHaveLength(
+      resFood.body.fruits.data.length + 1,
+    );
+    expect(
+      resFoodAgain.body.fruits.data[resFoodAgain.body.fruits.data.length - 1],
+    ).toBe(food);
+  });
 });

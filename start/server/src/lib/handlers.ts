@@ -18,9 +18,11 @@ export function postFruit(req: Request, res: Response): void {
   const { food } = req.body;
   if (!food) {
     res.status(400).json({ error: "food not in body" });
+    return;
   }
   if (typeof food !== "string") {
     res.status(400).json({ error: "food is not a string" });
+    return;
   }
   fruits.data.push(food);
   res.status(201).json({ message: "food added" });
